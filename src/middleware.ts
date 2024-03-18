@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 
 export default authMiddleware({
   publicRoutes: ["/"],
-  protectedRoutes:["/dashboard","/boards"],
   afterAuth(auth, req, evt) {
     if (!auth.userId && !auth.isPublicRoute) {
       // redirect landing page
