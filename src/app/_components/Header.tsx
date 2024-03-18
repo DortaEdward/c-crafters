@@ -16,7 +16,9 @@ export default function Header(){
           isSignedIn
             ? <div className="flex gap-2">
               <Link href="/dashboard" className="font-semibold text-lg">Dashboard</Link>
-              <SignOutButton className="font-medium text-lg" />
+              <div className="font-medium text-lg">
+                <SignOutButton />
+              </div>
             </div>
             : <SignInButton />
         }
