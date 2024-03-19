@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
-import CreateBoard from "../_components/CreateBoard";
+import { FaCirclePlus } from "react-icons/fa6";
+import CreateBoardModal from "../_components/CreateBoardModal";
 
 export default function Dashboard(){
   type BoardType = {
@@ -31,11 +32,15 @@ export default function Dashboard(){
     },
   ]
   return(
-    <div className="flex-grow pt-10 px-6 flex flex-col gap-4 bg-gray-100">
+    <div className="flex-grow pt-10 px-6 flex flex-col gap-4">
+      <CreateBoardModal />
       <h1 className="text-3xl font-bold">Boards</h1>
       <div className="flex gap-2">
-        <CreateBoard />
-       {
+              <div  className="w-56 h-40 shadow-lg rounded-md flex flex-col justify-center items-center gap-2">
+                <p>Create Board</p>
+                <FaCirclePlus size="24" />         
+              </div>
+        {
           boards.map((board: BoardType) => {
             return(
               <Link href={`/dashboard/boards/${board.id}`} key={board.id} className="relative w-56 h-40 shadow-lg rounded-md overflow-hidden flex flex-col justify-end">
