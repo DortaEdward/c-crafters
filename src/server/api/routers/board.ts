@@ -33,4 +33,22 @@ export const boardRouter = createTRPCRouter({
       orderBy: { createdAt: "desc" },
     });
   }),
+  getBoardById: publicProcedure.input(z.object({
+    ownerId: z.string(),
+    id: z.number(),
+  })).query(async ({ ctx, input }) => {
+    const { ownerId, id } = input;
+    const board =  await ctx.db.board.findFirst({
+      where:{
+        id:id
+      },
+      include:{
+        task_lists: true,
+      }
+    });
+    if (board && board.ownerId == ownerId){
+      return board
+    }
+    return null;
+  }),
 });

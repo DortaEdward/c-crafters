@@ -4,7 +4,7 @@ import { FaGear } from "react-icons/fa6";
 import {SignOutButton} from "@clerk/nextjs"
 export default function Header(){
   return(
-    <header className="w-full py-4 px-10 md:px-20 border-b flex justify-between items-center">
+    <header className="w-full py-4 px-10 md:px-20 border-b flex justify-between items-center bg-white">
       <div>
         <Link href="/dashboard" className="text-2xl font-bold outline-none">C/Crafter</Link>
       </div>
